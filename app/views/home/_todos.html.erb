@@ -1,0 +1,30 @@
+
+
+
+
+<% current_user.todos.all.order(order: :asc).each do |todo| %>
+
+<div class="card m-3" style="width: 18rem;">
+  <div class="card-body">
+    <div class="d-flex flex-row">
+      <h5 class="card-title"><%= todo.order %> - <%= todo.title.upcase %></h5>
+        <% if todo.done %>
+        <div style="margin-top:-2px;" class="ms-2">
+          <%= image_tag 'valid.png'%>
+        </div>
+        <% else %>
+        <div style="margin-top:-8px;" class="ms-1">
+          <%= image_tag 'new.png', style:"width:50px" %>
+        </div>
+
+        <% end %>
+    </div>
+
+    <% todo.sub_todos.each do |subtodo| %>
+      <h6 class="card-subtitle mb-2 text-muted mt-4"><%= subtodo.title %></h6>
+    <% end %>
+    <p><%= link_to "edit", edit_todo_path(todo)%></p>
+  </div>
+</div>
+
+<% end %>

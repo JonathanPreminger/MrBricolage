@@ -1,8 +1,26 @@
-<%= form_for @todo do |f| %>
-  <p>title</p>
-  <p><%= f.text_field :title %></p>
-  <p>Order</p>
-  <p><%= f.text_field :order %></p>
-  <p><%= f.hidden_field :user_id, value: current_user.id%></p>
-  <%= f.submit %>
-<% end %>
+<div class="container">
+  <%= form_for @todo do |f| %>
+    <p>Title</p>
+    <p><%= f.text_field :title %></p>
+    <p>Done ?</p>
+    <p class="w-25">
+    <%= f.label :done, "Yes", :value => "true"  %>
+    <%= f.radio_button :done, true, checked: @todo.done == true%>
+    <%= f.label :done, "No", :value => "false" %>
+    <%= f.radio_button :done, false, checked: @todo.done == false %>
+    </p>
+    <p>Order</p>
+    <p><%= f.text_field :order %></p>
+    <p><%= f.hidden_field :user_id, value: current_user.id%></p>
+    <%= f.submit %>
+  <% end %>
+
+  <%= form_for @todo do |f| %>
+    <p class="mt-4">Add a sub todo :</p>
+    <p><%= f.fields_for :sub_todos, SubTodo.new do |s| %></p>
+     <p><%= s.label :title %></p>
+     <p><%= s.text_field :title %></p>
+   <% end %>
+    <%= f.submit %>
+  <% end %>
+</div>
