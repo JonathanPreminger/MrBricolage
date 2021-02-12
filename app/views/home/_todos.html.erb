@@ -1,7 +1,3 @@
-
-
-
-
 <% current_user.todos.all.order(order: :asc).each do |todo| %>
 
 <div class="card m-3" style="width: 18rem;">
@@ -16,14 +12,12 @@
         <div style="margin-top:-8px;" class="ms-1">
           <%= image_tag 'new.png', style:"width:50px" %>
         </div>
-
         <% end %>
     </div>
-
     <% todo.sub_todos.each do |subtodo| %>
       <h6 class="card-subtitle mb-2 text-muted mt-4"><%= subtodo.title %></h6>
     <% end %>
-    <p><%= link_to "edit", edit_todo_path(todo)%></p>
+    <p><%= link_to "edit or add a sub todo task", edit_todo_path(todo)%></p>
   </div>
 </div>
 
