@@ -1,24 +1,7 @@
-# README
+Download the repo, cd inside, bundle, rails s.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+rspec for launching the tests.
 
-Things you may want to cover:
+Sign up with your email, login with your email, add a todo task, edit and add some sub todo task, re-order your task, check your task.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Thank you for your attention
