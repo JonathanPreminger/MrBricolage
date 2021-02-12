@@ -1,10 +1,13 @@
 class Todo < ApplicationRecord
   belongs_to :user
-  after_create :set_order
+  has_many :sub_todos, dependent: :destroy
+  
+  accepts_nested_attributes_for :sub_todos
+
   validates_presence_of :user
   validates_presence_of :title
-  has_many :sub_todos, dependent: :destroy
-  accepts_nested_attributes_for :sub_todos
+
+  after_create :set_order
 
   def set_order
     self.order = self.user.todos.count
